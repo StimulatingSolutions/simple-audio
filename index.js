@@ -1,11 +1,17 @@
 
+var ready = false;
+
 // Solves chrome for andriod issue 178297 Require user gesture
 // https://code.google.com/p/chromium/issues/detail?id=178297
 // Fix based on code from http://blog.foolip.org/2014/02/10/media-playback-restrictions-in-blink/
-if (mediaPlaybackRequiresUserGesture()) {
-  window.addEventListener('keydown', removeBehaviorsRestrictions);
-  window.addEventListener('mousedown', removeBehaviorsRestrictions);
-  window.addEventListener('touchstart', removeBehaviorsRestrictions);
+function watchForUserEvents() {
+  if (mediaPlaybackRequiresUserGesture()) {
+    window.addEventListener('keydown', removeBehaviorsRestrictions);
+    window.addEventListener('mousedown', removeBehaviorsRestrictions);
+    window.addEventListener('touchstart', removeBehaviorsRestrictions);
+  } else {
+    ready = true;
+  }
 }
 
 function mediaPlaybackRequiresUserGesture() {
@@ -23,6 +29,8 @@ function removeBehaviorsRestrictions() {
   window.removeEventListener('keydown', removeBehaviorsRestrictions);
   window.removeEventListener('mousedown', removeBehaviorsRestrictions);
   window.removeEventListener('touchstart', removeBehaviorsRestrictions);
+  
+  ready = true;
 }
 
 function setVolume(id, volume) {
@@ -43,12 +51,23 @@ var sounds = {};
 function captureAudioElements() {
   var audioElements = document.getElementsByTagName('audio');
 
+  var wasReady = ready;
   for (var i = 0; i < audioElements.length; i++) {
+    if (!sounds[audioElements[i].id]) {
+      ready = false;
+    }
     sounds[audioElements[i].id] = audioElements[i];
+  }
+  
+  if (wasReady && !ready) {
+    watchForUserEvents();
   }
 }
 
+
 captureAudioElements();
+watchForUserEvents();
+
 
 module.exports = {
   playSound: playSound,
