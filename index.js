@@ -25,6 +25,10 @@ function removeBehaviorsRestrictions() {
   window.removeEventListener('touchstart', removeBehaviorsRestrictions);
 }
 
+function setVolume(id, volume) {
+    sounds[id].volumne = volume;
+}
+
 function playSound(sound) {
   for (var key in sounds) {
     sounds[key].pause();
@@ -48,5 +52,6 @@ captureAudioElements();
 
 module.exports = {
   playSound: playSound,
-  captureAudioElements: captureAudioElements
+  captureAudioElements: captureAudioElements,
+  setVolume: setVolume
 };
