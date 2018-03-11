@@ -20,5 +20,8 @@ Addresses the Chrome for Andriod issue [178297](https://code.google.com/p/chromi
 
 ``` javascript
 var audio = require('simple-audio');
+audio.setVolume('foo', 0.5);
 audio.playSound('foo');
+// ... if additional audio elements are added later...
+audio.captureAudioElements();
 ```
