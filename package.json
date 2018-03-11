@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/MauriceButler/simple-audio.git"
+    "url": "git://github.com/StimulatingSolutions/simple-audio.git"
   },
   "keywords": [
     "simple",
@@ -19,14 +19,16 @@
     "android",
     "chrome",
     "sound",
+    "mobile",
     "mp3",
     "wav",
     "ogg"
   ],
-  "author": "Maurice Butler <maurice.butler@gmail.com>",
+  "author": "Joe Ibershoff <joe@stimulating-solutions.com>",
+  "contributors": ["Maurice Butler <maurice.butler@gmail.com>"],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MauriceButler/simple-audio/issues"
+    "url": "https://github.com/StimulatingSolutions/simple-audio/issues"
   },
-  "homepage": "https://github.com/MauriceButler/simple-audio"
+  "homepage": "https://github.com/StimulatingSolutions/simple-audio"
 }

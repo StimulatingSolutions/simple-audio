@@ -1,8 +1,8 @@
 # simple-audio
 
-Small Module to play audio using HTML audio tag
+Small Module to pre-load and play audio using HTML audio tag, forked from https://github.com/MauriceButler/simple-audio
 
-Also addresses the Chrome for Andriod issue [178297](https://code.google.com/p/chromium/issues/detail?id=178297)
+Addresses the Chrome for Andriod issue [178297](https://code.google.com/p/chromium/issues/detail?id=178297)
 
 ## Usage
 
