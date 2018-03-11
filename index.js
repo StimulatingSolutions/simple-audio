@@ -2,7 +2,7 @@ var audioElements = document.getElementsByTagName('audio'),
     sounds = {};
 
 for (var i = 0; i < audioElements.length; i++) {
-    sounds[audioElements[i].className] = audioElements[i];
+    sounds[audioElements[i].id] = audioElements[i];
 }
 
 // Solves chrome for andriod issue 178297 Require user gesture

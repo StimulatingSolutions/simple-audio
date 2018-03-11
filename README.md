@@ -9,7 +9,7 @@ Addresses the Chrome for Andriod issue [178297](https://code.google.com/p/chromi
 #### HTML
 
 ``` html
-<audio class="foo">
+<audio id="foo">
     <source src="foo.mp3"></source>
     <source src="foo.wav"></source>
     <source src="foo.ogg"></source>
