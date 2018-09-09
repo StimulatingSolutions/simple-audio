@@ -10,6 +10,9 @@ function watchForUserEvents() {
     window.addEventListener('mousedown', removeBehaviorsRestrictions);
     window.addEventListener('touchstart', removeBehaviorsRestrictions);
   } else {
+    for (var soundId in sounds) {
+      sounds[soundId].load();
+    }
     ready = true;
   }
 }
@@ -29,7 +32,7 @@ function removeBehaviorsRestrictions() {
   window.removeEventListener('keydown', removeBehaviorsRestrictions);
   window.removeEventListener('mousedown', removeBehaviorsRestrictions);
   window.removeEventListener('touchstart', removeBehaviorsRestrictions);
-  
+
   ready = true;
 }
 
@@ -58,7 +61,7 @@ function captureAudioElements() {
     }
     sounds[audioElements[i].id] = audioElements[i];
   }
-  
+
   if (wasReady && !ready) {
     watchForUserEvents();
   }
